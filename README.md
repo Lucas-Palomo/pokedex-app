@@ -14,3 +14,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Server SSR
 
 Run `npm run serve:ssr`
+
+## Run containerized
+
+You can run it as a containerized application
+
+```shell
+docker-compose up -d --force-recreate
+```
