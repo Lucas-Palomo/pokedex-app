@@ -1,0 +1,20 @@
+version: "2.27.0"
+services:
+  frontend:
+    container_name: "app"
+    network_mode: "host"
+    build: .
+    volumes:
+      - "./:/root/app:z"
+    command:
+      - |
+        mkdir -p /root/pokedex/app
+        cp -r /root/app/src /root/pokedex/app/
+        cp -r /root/app/.* /root/pokedex/app/
+        cp -r /root/app/*.json /root/pokedex/app/
+        cp -r /root/app/*.ts /root/pokedex/app/
+        cd /root/pokedex/app/
+        source /root/.nvm/nvm.sh
+        npm install
+        npm run build
+        npm run serve:ssr
