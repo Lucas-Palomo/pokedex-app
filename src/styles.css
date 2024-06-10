@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+.page {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.bg {
+  background: #dbd8e3;
+}
+
+
+.title:first-letter {
+  text-transform: uppercase;
+}
+
+.outline-label {
+  background: white !important;
+  color: black !important;
+  border: 2px solid black;
+}
+
+.vh {
+  min-height: 100vh;
+}

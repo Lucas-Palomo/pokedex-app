@@ -1,0 +1,74 @@
+<div class="uk-grid uk-child-width-expand@s uk-child-width-1-2@m" uk-grid id="pokemon">
+
+  <div class="uk-align-center vh">
+
+    <div class="uk-card uk-card-default uk-height-1-1" [class.uk-flex]="loading">
+      <div class="uk-flex uk-flex-middle uk-align-center" *ngIf="!loading; then content">
+
+          <span uk-spinner="ratio: 4.5"></span>
+
+      </div>
+
+      <ng-template #content>
+        <div class="uk-card-body" *ngIf="pokemon">
+
+          <h3 class="uk-card-title title uk-text-center">{{ pokemon.name }}</h3>
+          <div class="uk-card-media-bottom">
+            <img src="{{pokemon.cover()}}">
+
+            <div class="uk-text-small uk-flex">
+            <span class="uk-label outline-label uk-margin-small-left"
+                  *ngFor="let type of pokemon.types">{{ type }}</span>
+            </div>
+
+
+          </div>
+
+          <hr/>
+
+          <div class="uk-text-italic uk-text-center uk-text-bold uk-display-block">
+            <span class="uk-padding-small">Height {{ pokemon.height }}</span>
+            <span class="uk-padding-small">Weight {{ pokemon.weight }}</span>
+          </div>
+
+          <div class="uk-grid uk-child-width-expand@s uk-child-width-1-3@m uk-text-center" uk-grid>
+
+
+            <div class="uk-text-center uk-margin-medium-top">
+              <ul class="uk-list uk-text-center uk-text-bold">
+                <li>HP {{ pokemon.hp }}</li>
+                <li>Speed {{ pokemon.speed }}</li>
+                <li>Attack {{ pokemon.attack }}</li>
+                <li>Defense {{ pokemon.defense }}</li>
+              </ul>
+            </div>
+
+            <div class="uk-margin-medium-top uk-align-center">
+              <img src="{{pokemon.animated().front}}" height="96" width="96">
+            </div>
+
+            <div class="uk-margin-medium-top">
+              <img src="{{pokemon.animated().back}}" height="96" width="96">
+            </div>
+
+          </div>
+
+
+        </div>
+        <div class="uk-card-footer">
+          <button class="uk-button uk-button-text uk-align-center"
+                  (click)="getXML()">
+            Get XML
+          </button>
+        </div>
+      </ng-template>
+
+    </div>
+
+
+
+
+  </div>
+
+
+</div>
